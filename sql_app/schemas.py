@@ -1,11 +1,24 @@
 from typing import List, Optional
 
 from pydantic import BaseModel
-## Disciplina, Nota
 
+#----Alunos----#
+
+class AlunoBase (BaseModel):
+    nome:str = None
+
+class AlunoCreate(AlunoBase):
+    pass
+
+class Aluno(AlunoBase):
+    id:int
+    class Config:
+        orm_mode = True
+
+#----Disciplinas----#
 
 class DisciplinaBase (BaseModel):
-    name:str = None
+    nome:str = None
     professor:Optional[str]  = None
     anotacao:Optional[str]  = None
 
@@ -14,22 +27,22 @@ class DisciplinaCreate(DisciplinaBase):
     pass
 
 class Disciplina(DisciplinaBase):
+    aluno_id:int
     id:int
     class Config:
         orm_mode = True
 
-class NotaBase (BaseModel):
-    nome_av:str = None
-    nota:str  = None
-    id_disciplina:int  = None
+#----Notas----#
 
+class NotaBase (BaseModel):
+    nome:str = None
+    nota:str  = None
 
 class NotaCreate(NotaBase):
     pass
 
-
 class Nota(NotaBase):
+    disciplina_id:int
     id:int
-    id_disciplina:int
     class Config:
         orm_mode = True

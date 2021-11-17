@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS sql_app;
+CREATE DATABASE sql_app;
+USE sql_app;
