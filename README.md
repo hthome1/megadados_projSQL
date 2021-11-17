@@ -1,6 +1,4 @@
-# megadados_projSQL
-
-Projeto SQL usando FAST API - Engenharia da computação - Insper.
+# Projeto SQL usando FAST API
 
 ## Instruções de inicialização
 
